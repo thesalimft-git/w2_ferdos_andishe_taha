@@ -1,4 +1,4 @@
-name: Test and Build React App for
+name: Test and Build React App
 
 on:
   push:
@@ -9,14 +9,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: '22.x'
+          cache: 'npm'
+      
       - run: npm ci
+      
       - run: npm run build
-      - run: |
+      
+      - name: Create and push tag
+        run: |
           git tag v$(date +'%Y.%m.%d')-$(git rev-parse --short HEAD)
           git push origin --tags
+      
       - uses: softprops/action-gh-release@v1
         with:
           generate_release_notes: true
