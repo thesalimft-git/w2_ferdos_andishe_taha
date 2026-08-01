@@ -19,11 +19,6 @@ jobs:
       
       - run: npm run build
       
-      - name: Create and push tag
-        run: |
-          git tag v$(date +'%Y.%m.%d')-$(git rev-parse --short HEAD)
-          git push origin --tags
-      
       - uses: softprops/action-gh-release@v1
         with:
           generate_release_notes: true
