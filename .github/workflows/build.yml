@@ -1,0 +1,22 @@
+name: Test and Build React App for
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - run: npm ci
+      - run: npm run build
+      - run: |
+          git tag v$(date +'%Y.%m.%d')-$(git rev-parse --short HEAD)
+          git push origin --tags
+      - uses: softprops/action-gh-release@v1
+        with:
+          generate_release_notes: true
