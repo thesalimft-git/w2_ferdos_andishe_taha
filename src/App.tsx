@@ -1,19 +1,16 @@
-import AlertDialogSample from "./partials/AlertDialogSample"
-import FaqSection from "./partials/FaqSection"
-import { TopMenu } from "./partials/TopMenu"
-
+import Layout from "./Layout"
+import DashboardPage from "./pages/DashboardPage"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
 export function App() {
   return (
-    <div>
-      <TopMenu />
-      <div>
-        <AlertDialogSample />
-      </div>
-      <div>
-        <FaqSection />
-      </div>
-    </div>
+    <Router>
+        <Layout>
+          <Routes>
+              <Route path="/" element={<DashboardPage />} />
+          </Routes>
+        </Layout>
+      </Router>
   )
 }
 

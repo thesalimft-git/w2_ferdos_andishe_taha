@@ -1,36 +1,33 @@
-// http://192.168.100.7:5173/abc.txt
-
-import * as React from "react"
-
 import {
-  CircleAlertIcon,
-  CircleCheckIcon,
-  CircleDashedIcon,
-} from "lucide-react"
-
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
+    NavigationMenu,
+    NavigationMenuItem,
+    NavigationMenuLink,
+    NavigationMenuList,
 } from "@/components/ui/navigation-menu"
-import { Link } from "react-router-dom";
 
 
 export function TopMenu() {
-  return (
-    <NavigationMenu>
-  <NavigationMenuList>
-    <NavigationMenuItem>
-      <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
-      <NavigationMenuContent>
-        <NavigationMenuLink>Link</NavigationMenuLink>
-      </NavigationMenuContent>
-    </NavigationMenuItem>
-  </NavigationMenuList>
-</NavigationMenu>
-  )
+    let menu_items: string[] = Array(
+        'Dashboard',
+        'Courses',
+        'Calendar',
+        'Account',
+        'Setting'
+    )
+
+    return (
+        <NavigationMenu>
+            <NavigationMenuList>
+                <NavigationMenuItem className='flex px-3 h-12 cursor-pointer'>
+                    {menu_items.map((item) => {
+                        return (
+                            <NavigationMenuLink>
+                                {item}
+                            </NavigationMenuLink>
+                        )
+                    })}
+                </NavigationMenuItem>
+            </NavigationMenuList>
+        </NavigationMenu>
+    )
 }
