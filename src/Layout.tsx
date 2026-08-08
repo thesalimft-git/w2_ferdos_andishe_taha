@@ -1,12 +1,19 @@
 import FaqSection from "./partials/FaqSection";
 import { TopMenu } from "./partials/TopMenu";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
+import { AppSidebar } from "@/components/app-sidebar"
+
 
 export default function Layout({ children }: { children: any }) {
   return (
-    <div className="container">
+    <SidebarProvider>
       <TopMenu />
-      <div>{children}</div>
+      <AppSidebar />
+      <main>
+        <SidebarTrigger />
+        {children}
+      </main>
       <FaqSection />
-    </div>
+    </SidebarProvider>
   );
 }
