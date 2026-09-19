@@ -1,3 +1,11 @@
+steps:
+1- props
+2- hooks
+3- axios
 
-git push > build, test, deploy, test, email
 
+what to learn ?
+git, github, git action, vercel, cicd
+
+
+componenet > TopBar.jsx --> main

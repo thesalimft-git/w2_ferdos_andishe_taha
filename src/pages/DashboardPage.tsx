@@ -1,5 +1,7 @@
 export default function DashboardPage() {
   return (
-    <div>DashboardPage</div>
+    <div className="bg-red-500">
+      
+    </div>
   )
 }
