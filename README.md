@@ -9,3 +9,5 @@ git, github, git action, vercel, cicd
 
 
 componenet > TopBar.jsx --> main
+
+ProductCard.jsx ==> name, price, description
