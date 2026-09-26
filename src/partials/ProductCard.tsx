@@ -1,8 +1,19 @@
-export default function ProductCard({ product }) {
+type Product = {
+  name: string;
+  price: number; 
+  color: string;
+}
+
+type ProductCardProps = {
+  product: Product;
+}
+
+export default function ProductCard({ product }: ProductCardProps) {
     return (
-        <div>
-            <h1>{product}</h1>
-            ProductCard
+        <div className="border-2 rounded-lg p-5">
+            <h1>{product.name}</h1>
+            <button>${product.price}</button>
+            <button>{product.color}</button>
         </div>
     )
 }
